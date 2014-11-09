@@ -1,6 +1,6 @@
 {
   "name": "chant",
-  "description": "",
+  "description": "A key-value styles cached layer framework.",
   "version": "0.1.0",
   "repository": {
     "url": "git://github.com/kumatch/chant.git"
