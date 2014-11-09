@@ -13,6 +13,7 @@
     "test": "test/"
   },
   "dependencies": {
+    "bluebird": "^2.3.11"
   },
   "devDependencies": {
     "espower-loader": "^0.9.1",

@@ -155,7 +155,6 @@ describe("chant#create", function () {
         });
     });
 
-
     describe("invalid parameter", function () {
         var params;
 
@@ -180,6 +179,32 @@ describe("chant#create", function () {
                 assert.throws(function () {
                     chant.create(params);
                 });
+            });
+        });
+    });
+
+
+    describe("access params properties", function (done) {
+
+        it("should use self properties.", function (done) {
+            var foo = chant.create({
+                get: function (key, callback) {
+                    callback(null, this._transformTest( key + this._addition ));
+                },
+                put: function (key, value, callback) { },
+                delete: function (key, callback) { },
+                clean: function (callback) { },
+
+                _addition: "baz",
+
+                _transformTest: function (v) {
+                    return v + v.toUpperCase();
+                }
+            });
+
+            foo.get("bar", function (err, result) {
+                assert(result === "barbazBARBAZ");
+                done(err);
             });
         });
     });
